@@ -31,7 +31,9 @@ export default ListView = (props) => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.log("Exception in API call: ", error);
+      Alert.alert("Alert", "Something went wrong!" + error, [
+        { text: "OK", onPress: () => console.log("OK Pressed") },
+      ]);
     }
   };
 
@@ -46,7 +48,9 @@ export default ListView = (props) => {
         ]);
       }
     } catch (error) {
-      console.log("Error in api call : " + error);
+      Alert.alert("Alert", "Something went wrong!" + error, [
+        { text: "OK", onPress: () => console.log("OK Pressed") },
+      ]);
     }
   };
 
