@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import {
+  Alert,
   Image,
   ScrollView,
   Text,
@@ -20,7 +21,9 @@ export default LoginView = (props) => {
   const handleLogin = async () => {
     if (username && password) {
       if (username === "username" && password === "password") {
-        props.setIsLoginView(false);
+        Alert.alert("Alert", "Login successful.", [
+          { text: "OK", onPress: () => props.setIsLoginView(false) },
+        ]);
       } else {
         setApiErrorMsg("Username and Password is not valid!");
       }
@@ -97,7 +100,7 @@ export default LoginView = (props) => {
                 value={username}
                 placeholder="Username"
                 keyboardType="default"
-                selectionColor={"blue"}
+                selectionColor={"#610613"}
               />
               <TextInput
                 style={{
@@ -117,7 +120,7 @@ export default LoginView = (props) => {
                 value={password}
                 placeholder="Password"
                 keyboardType="default"
-                selectionColor={"blue"}
+                selectionColor={"#610613"}
               />
               {apiErrorMsg ? (
                 <Text
@@ -141,8 +144,6 @@ export default LoginView = (props) => {
                 </Text>
               )}
               <TouchableOpacity
-                mode="contained"
-                color={"blue"}
                 onPress={handleLogin}
                 style={{
                   borderRadius: 20,

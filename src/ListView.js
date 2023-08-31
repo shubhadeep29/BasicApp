@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { Alert, FlatList, Text, View } from "react-native";
+import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native";
 import * as Network from "expo-network";
 import { useEffect, useState } from "react";
 
-export default ListView = () => {
+export default ListView = (props) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
@@ -139,6 +139,20 @@ export default ListView = () => {
           }
         />
       </View>
+      <TouchableOpacity
+        onPress={() => {
+          props.setIsLoginView(true);
+        }}
+        style={{
+          borderRadius: 20,
+          margin: 10,
+          borderWidth: 1,
+          padding: 10,
+          backgroundColor: "#610613",
+        }}
+      >
+        <Text style={{ textAlign: "center", color: "white" }}>Logout</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
